@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magenable" translate="label" sortOrder="100">
+            <label>Magenable</label>
+        </tab>
+        <section id="magenable_purchase_partner_url" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Purchase Partner Url</label>
+            <tab>magenable</tab>
+            <resource>Magenable_PurchasePartnerUrl::config_magenable_purchase_partner_url</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="info" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Flush Cache</label>
+                <frontend_model>Magenable\PurchasePartnerUrl\Block\Adminhtml\System\Config\FlushCache</frontend_model>
+            </group>
+        </section>
+    </system>
+</config>

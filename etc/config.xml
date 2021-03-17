@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <magenable_purchase_partner_url>
+            <general>
+                <enabled>1</enabled>
+            </general>
+        </magenable_purchase_partner_url>
+    </default>
+</config>
