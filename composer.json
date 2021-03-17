@@ -1,0 +1,17 @@
+{
+    "name": "magenable/purchase-partner-url",
+    "description": "A module that allow specify partner url for any product",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "require": {
+        "php": "~7.2"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Magenable\\PurchasePartnerUrl\\": ""
+        }
+    }
+}

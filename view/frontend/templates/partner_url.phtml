@@ -1,0 +1,10 @@
+<?php /** @var Magenable\PurchasePartnerUrl\Block\PartnerUrl $block */ ?>
+<script>
+    if (!window.magenable) {
+        window.magenable = {};
+    }
+    window.magenable.purchasePartnerUrls = {};
+    <?php foreach ($block->getProducts() as $product) { ?>
+    window.magenable.purchasePartnerUrls[<?= $product->getId() ?>] = '<?= $escaper->escapeJs($product->getMagenablePurchasePartnerUrl()) ?>';
+    <?php } ?>
+</script>
