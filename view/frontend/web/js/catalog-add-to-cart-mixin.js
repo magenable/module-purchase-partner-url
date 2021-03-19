@@ -16,7 +16,7 @@ define([
             if (partnerUrl) {
                 this.element.find(this.options.addToCartButtonSelector).text(
                     $t('Purchase From Partner')
-                );
+                ).attr('disabled', false);
                 this.element.on('submit', function (e) {
                     e.preventDefault();
                     location.href = partnerUrl;
