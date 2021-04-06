@@ -12,8 +12,8 @@ Run the following command in Magento 2 root folder
 
 ```
 composer require magenable/purchase-partner-url
+php bin/magento module:enable Magenable_PurchasePartnerUrl
 php bin/magento setup:upgrade
-php bin/magento setup:di:compile
 php bin/magento setup:static-content:deploy
 ```
 <br />
