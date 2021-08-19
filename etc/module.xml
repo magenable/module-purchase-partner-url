@@ -3,6 +3,7 @@
     <module name="Magenable_PurchasePartnerUrl" setup_version="1.0.0">
         <sequence>
             <module name="Magento_Catalog"/>
+            <module name="Magento_Sales"/>
         </sequence>
     </module>
 </config>
