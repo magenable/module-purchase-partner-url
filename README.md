@@ -1,7 +1,7 @@
 # Purchase From Partner
 
 **Purchase From Partner** is a Magento 2 module that allows you to replace standard Add to Cart button with a link to external website. <br>
-Typical use case is redirecting from brand website to retail partner website. Partner url can be definef on product level.
+Typical use case is redirecting from brand website to retail partner website. Partner url can be defined on product level.
 
 <br />
 
