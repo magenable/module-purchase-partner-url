@@ -7,11 +7,10 @@ use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Magento\Catalog\Model\Product;
+use Magenable\PurchasePartnerUrl\Helper\Data;
 
 class AddPurchasePartnerUrlAttribute implements DataPatchInterface
 {
-    const ATTR_CODE = 'magenable_purchase_partner_url';
-
     /**
      * @var ModuleDataSetupInterface
      */
@@ -43,7 +42,7 @@ class AddPurchasePartnerUrlAttribute implements DataPatchInterface
         $eavSetup = $this->eavSetupFactory->create(['setup' => $this->moduleDataSetup]);
         $eavSetup->addAttribute(
             Product::ENTITY,
-            self::ATTR_CODE,
+            Data::ATTR_CODE,
             [
                 'type' => 'text',
                 'group' => 'General',

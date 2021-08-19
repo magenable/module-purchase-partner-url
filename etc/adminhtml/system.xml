@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="magenable" translate="label" sortOrder="100">
+        <tab id="magenable" translate="label" sortOrder="200">
             <label>Magenable</label>
         </tab>
         <section id="magenable_purchase_partner_url" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">

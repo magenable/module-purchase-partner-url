@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="magenable_pruchase_partner_url_plugin_product" type="Magenable\PurchasePartnerUrl\Plugin\Product" sortOrder="1" disabled="false"/>
+    </type>
+</config>

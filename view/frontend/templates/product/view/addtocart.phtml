@@ -1,0 +1,23 @@
+<?php
+/**
+ * @var \Magenable\PurchasePartnerUrl\Block\Product\View $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Purchase from partner'); ?>
+<?php if ($_product->isSaleable()): ?>
+<div class="box-tocart">
+    <div class="fieldset">
+        <div class="actions">
+            <button type="button"
+                    title="<?= $escaper->escapeHtmlAttr($buttonTitle) ?>"
+                    class="action primary tocart"
+                    onclick="document.location='<?= $block->getPurchasePartnerUrl() ?>';"
+                    id="product-addtocart-button">
+                <span><?= $escaper->escapeHtml($buttonTitle) ?></span>
+            </button>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
