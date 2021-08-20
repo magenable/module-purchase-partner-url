@@ -2,12 +2,13 @@
 
 namespace Magenable\PurchasePartnerUrl\Setup\Patch\Data;
 
-use Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface;
-use Magento\Eav\Setup\EavSetupFactory;
-use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
+use Magento\Framework\Setup\ModuleDataSetupInterface;
+use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Catalog\Model\Product;
 use Magenable\PurchasePartnerUrl\Helper\Data;
+use Magento\Eav\Model\Entity\Attribute\Backend\ArrayBackend;
+use Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface;
 
 class AddPurchasePartnerUrlAttribute implements DataPatchInterface
 {
@@ -48,15 +49,17 @@ class AddPurchasePartnerUrlAttribute implements DataPatchInterface
                 'group' => 'General',
                 'label' => 'Purchase Partner Url',
                 'attribute_set' => 'Product Details',
-                'backend' => 'Magento\Eav\Model\Entity\Attribute\Backend\ArrayBackend',
+                'backend' => ArrayBackend::class,
                 'input' => 'text',
                 'source' => '',
                 'required' => false,
-                'global' => ScopedAttributeInterface::SCOPE_GLOBAL,
+                'global' => ScopedAttributeInterface::SCOPE_STORE,
                 'searchable' => false,
                 'filterable' => false,
                 'comparable' => false,
-                'user_defined' => false
+                'user_defined' => false,
+                'is_visible_on_front' => false,
+                'used_in_product_listing' => true
             ]
         );
     }

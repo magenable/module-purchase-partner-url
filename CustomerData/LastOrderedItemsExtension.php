@@ -6,7 +6,9 @@ namespace Magenable\PurchasePartnerUrl\CustomerData;
 use Magento\Sales\CustomerData\LastOrderedItems;
 use Magento\Sales\Model\Order\Item;
 use Magento\Framework\App\ObjectManager;
+use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magenable\PurchasePartnerUrl\Helper\Data;
+use Magento\Store\Model\ScopeInterface;
 
 class LastOrderedItemsExtension extends LastOrderedItems
 {
@@ -16,12 +18,18 @@ class LastOrderedItemsExtension extends LastOrderedItems
     protected function isItemAvailableForReorder(Item $orderItem)
     {
         $objectManager = ObjectManager::getInstance();
-        $productRepositoy = $objectManager->get('Magento\Catalog\Api\ProductRepositoryInterface');
-        $product = $productRepositoy->getById(
+        $productRepository = $objectManager->get(ProductRepositoryInterface::class);
+        $product = $productRepository->getById(
             $orderItem->getProduct()->getId()
         );
 
-        if ($product->getCustomAttribute(Data::ATTR_CODE) != null) {
+        $dataHelper = $objectManager->get(Data::class);
+        $moduleIsEnabled = $dataHelper->getConfigValue(
+            Data::CONFIG_ENABLED,
+            ScopeInterface::SCOPE_STORE
+        );
+
+        if ($moduleIsEnabled && $product->getData(Data::ATTR_CODE)) {
             return false;
         }
 

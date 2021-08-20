@@ -4,6 +4,7 @@
         <magenable_purchase_partner_url>
             <general>
                 <enabled>1</enabled>
+                <title>Purhase From Partner</title>
             </general>
         </magenable_purchase_partner_url>
     </default>

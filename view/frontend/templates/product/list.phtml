@@ -1,0 +1,15 @@
+<?php
+/**
+ * @var \Magenable\PurchasePartnerUrl\Block\Product\ListProduct $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+<?php $buttonTitle = $block->getButtonTitle(); ?>
+<div class="product-item-purchase-partner">
+    <button type="button"
+            title="<?= $escaper->escapeHtmlAttr($buttonTitle) ?>"
+            class="action tocart primary"
+            onclick="document.location='<?= $escaper->escapeJs($block->getPurchasePartnerUrl()) ?>';">
+        <span><?= $escaper->escapeHtml($buttonTitle) ?></span>
+    </button>
+</div>

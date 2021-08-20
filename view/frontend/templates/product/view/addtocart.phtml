@@ -4,9 +4,7 @@
  * @var \Magento\Framework\Escaper $escaper
  */
 ?>
-<?php $_product = $block->getProduct(); ?>
-<?php $buttonTitle = __('Purchase from partner'); ?>
-<?php if ($_product->isSaleable()): ?>
+<?php $buttonTitle = $block->getButtonTitle(); ?>
 <div class="box-tocart">
     <div class="fieldset">
         <div class="actions">
@@ -20,4 +18,3 @@
         </div>
     </div>
 </div>
-<?php endif; ?>
