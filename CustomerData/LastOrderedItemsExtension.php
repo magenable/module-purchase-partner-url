@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Magenable\PurchasePartnerUrl\CustomerData;
 
+use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Sales\CustomerData\LastOrderedItems;
 use Magento\Sales\Model\Order\Item;
 use Magento\Framework\App\ObjectManager;
@@ -19,9 +20,13 @@ class LastOrderedItemsExtension extends LastOrderedItems
     {
         $objectManager = ObjectManager::getInstance();
         $productRepository = $objectManager->get(ProductRepositoryInterface::class);
-        $product = $productRepository->getById(
-            $orderItem->getProduct()->getId()
-        );
+        try {
+            $product = $productRepository->getById(
+                $orderItem->getProduct()->getId()
+            );
+        } catch (NoSuchEntityException $e) {
+            return false;
+        }
 
         $dataHelper = $objectManager->get(Data::class);
         $moduleIsEnabled = $dataHelper->getConfigValue(

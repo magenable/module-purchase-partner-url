@@ -4,17 +4,21 @@
  * @var \Magento\Framework\Escaper $escaper
  */
 ?>
-<?php $buttonTitle = $block->getButtonTitle(); ?>
 <div class="box-tocart">
     <div class="fieldset">
         <div class="actions">
+            <?php foreach ($block->getPurchasePartnerUrls() as $purchasePartnerUrl): ?>
+            <?php $buttonTitle = $purchasePartnerUrl['link_title'] ?: $block->getDefaultButtonTitle(); ?>
             <button type="button"
                     title="<?= $escaper->escapeHtmlAttr($buttonTitle) ?>"
                     class="action primary tocart"
-                    onclick="document.location='<?= $block->getPurchasePartnerUrl() ?>';"
+                    onclick="document.location='<?= $escaper->escapeJs($purchasePartnerUrl['link']) ?>';"
                     id="product-addtocart-button">
-                <span><?= $escaper->escapeHtml($buttonTitle) ?></span>
+                <span>
+                    <?= $escaper->escapeHtml($buttonTitle) ?>
+                </span>
             </button>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>

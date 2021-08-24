@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Magenable\PurchasePartnerUrl\Setup\Patch\Data;
 
@@ -7,7 +8,7 @@ use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Catalog\Model\Product;
 use Magenable\PurchasePartnerUrl\Helper\Data;
-use Magento\Eav\Model\Entity\Attribute\Backend\ArrayBackend;
+use Magento\Eav\Model\Entity\Attribute\Backend\JsonEncoded;
 use Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface;
 
 class AddPurchasePartnerUrlAttribute implements DataPatchInterface
@@ -39,7 +40,7 @@ class AddPurchasePartnerUrlAttribute implements DataPatchInterface
      */
     public function apply()
     {
-        /** @var Magento\Eav\Setup\EavSetup $eavSetup */
+        /** @var \Magento\Eav\Setup\EavSetup $eavSetup */
         $eavSetup = $this->eavSetupFactory->create(['setup' => $this->moduleDataSetup]);
         $eavSetup->addAttribute(
             Product::ENTITY,
@@ -49,7 +50,7 @@ class AddPurchasePartnerUrlAttribute implements DataPatchInterface
                 'group' => 'General',
                 'label' => 'Purchase Partner Url',
                 'attribute_set' => 'Product Details',
-                'backend' => ArrayBackend::class,
+                'backend' => JsonEncoded::class,
                 'input' => 'text',
                 'source' => '',
                 'required' => false,

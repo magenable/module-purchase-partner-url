@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Magenable\PurchasePartnerUrl\Block\Product;
 
@@ -26,7 +27,7 @@ class View extends \Magento\Catalog\Block\Product\View
     /**
      * @return string
      */
-    public function getButtonTitle()
+    public function getDefaultButtonTitle(): string
     {
         return $this->_scopeConfig->getValue(
             Data::CONFIG_DEFAULT_TITLE,
@@ -35,9 +36,9 @@ class View extends \Magento\Catalog\Block\Product\View
     }
 
     /**
-     * @return string|null
+     * @return array|null
      */
-    public function getPurchasePartnerUrl()
+    public function getPurchasePartnerUrls(): ?array
     {
         return $this->getProduct()->getData(Data::ATTR_CODE);
     }

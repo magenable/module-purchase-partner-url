@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Magenable\PurchasePartnerUrl\Block\Adminhtml\System\Config;
 
@@ -7,7 +8,11 @@ use Magento\Framework\Data\Form\Element\AbstractElement;
 
 class FlushCache extends Field
 {
-    protected function _getElementHtml(AbstractElement $element)
+    /**
+     * @param AbstractElement $element
+     * @return string
+     */
+    protected function _getElementHtml(AbstractElement $element): string
     {
         return '
             <div class="notices-wrapper">

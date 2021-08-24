@@ -14,18 +14,18 @@ use Magenable\PurchasePartnerUrl\Block\Product\ListProduct;
 class AbstractProductPlugin
 {
     /**
-     * @var \Magento\Framework\View\LayoutFactory
+     * @var LayoutFactory
      */
     private $layoutFactory;
 
     /**
-     * @var \Magento\Framework\App\Config\ScopeConfigInterface
+     * @var ScopeConfigInterface
      */
     private $scopeConfig;
 
     /**
-     * @param \Magento\Framework\View\LayoutFactory $layoutFactory
-     * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
+     * @param LayoutFactory $layoutFactory
+     * @param ScopeConfigInterface $scopeConfig
      */
     public function __construct(
         LayoutFactory $layoutFactory,
@@ -36,9 +36,9 @@ class AbstractProductPlugin
     }
 
     /**
-     * @param \Magento\Catalog\Block\Product\AbstractProduct $subject
+     * @param AbstractProduct $subject
      * @param mixed $result
-     * @param \Magento\Catalog\Model\Product $product
+     * @param Product $product
      * @return mixed
      */
     public function afterGetProductDetailsHtml(AbstractProduct $subject, $result, Product $product)

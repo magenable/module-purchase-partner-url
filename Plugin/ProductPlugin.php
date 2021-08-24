@@ -11,12 +11,12 @@ use Magenable\PurchasePartnerUrl\Helper\Data;
 class ProductPlugin
 {
     /**
-     * @var \Magento\Framework\App\Config\ScopeConfigInterface
+     * @var ScopeConfigInterface
      */
     private $scopeConfig;
 
     /**
-     * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
+     * @param ScopeConfigInterface $scopeConfig
      */
     public function __construct(
         ScopeConfigInterface $scopeConfig
@@ -25,11 +25,11 @@ class ProductPlugin
     }
 
     /**
-     * @param \Magento\Catalog\Model\Product $subject
+     * @param Product $subject
      * @param bool $result
      * @return bool
      */
-    public function afterIsSaleable(Product $subject, bool $result)
+    public function afterIsSaleable(Product $subject, bool $result): bool
     {
         $moduleIsEnabled = $this->scopeConfig->getValue(
             Data::CONFIG_ENABLED,
