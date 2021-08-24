@@ -36,10 +36,58 @@ class View extends \Magento\Catalog\Block\Product\View
     }
 
     /**
+     * @return int
+     */
+    public function analyticsIsEnabled(): int
+    {
+        return (int)$this->_scopeConfig->getValue(
+            Data::CONFIG_ANALYTICS_ENABLED,
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * @return string
+     */
+    public function getDefaultEventCategory(): string
+    {
+        return $this->_scopeConfig->getValue(
+            Data::CONFIG_DEFAULT_EVENT_CATEGORY,
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * @return string
+     */
+    public function getDefaultEventAction(): string
+    {
+        return $this->_scopeConfig->getValue(
+            Data::CONFIG_DEFAULT_EVENT_ACTION,
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
      * @return array|null
      */
     public function getPurchasePartnerUrls(): ?array
     {
         return $this->getProduct()->getData(Data::ATTR_CODE);
+    }
+
+    /**
+     * @return int
+     */
+    public function getEventValue(): int
+    {
+        $price = $this->getProduct()->getPrice();
+        if ($price < 1) {
+            $price = 1;
+        } else {
+            $price = round($price);
+        }
+
+        return (int)$price;
     }
 }

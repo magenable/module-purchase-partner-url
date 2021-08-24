@@ -7,11 +7,22 @@
 <div class="product-item-purchase-partner">
     <?php foreach ($block->getPurchasePartnerUrls() as $purchasePartnerUrl): ?>
     <?php $buttonTitle = $purchasePartnerUrl['link_title'] ?: $block->getDefaultButtonTitle(); ?>
+    <?php $eventCategory = $purchasePartnerUrl['event_category'] ?: $block->getDefaultEventCategory(); ?>
+    <?php $eventAction = $purchasePartnerUrl['event_action'] ?: $block->getDefaultEventAction(); ?>
+    <?php $price = $block->getProduct()->getPrice(); ?>
     <button type="button"
             title="<?= $escaper->escapeHtmlAttr($buttonTitle) ?>"
-            class="action tocart primary"
-            onclick="document.location='<?= $escaper->escapeJs($purchasePartnerUrl['link']) ?>';">
+            class="action tocart primary magenable-purchase-partner-url"
+            data-link="<?= $escaper->escapeHtmlAttr($purchasePartnerUrl['link']) ?>"
+            data-event-category="<?= $escaper->escapeHtmlAttr($eventCategory) ?>"
+            data-event-action="<?= $escaper->escapeHtmlAttr($eventAction) ?>"
+            data-event-value="<?= $escaper->escapeHtmlAttr($block->getEventValue()) ?>">
         <span><?= $escaper->escapeHtml($buttonTitle) ?></span>
     </button>
     <?php endforeach; ?>
 </div>
+<script>
+    require(['Magenable_PurchasePartnerUrl/google-analytics'], function(magenableGa) {
+        magenableGa(<?= $block->analyticsIsEnabled() ?>);
+    });
+</script>

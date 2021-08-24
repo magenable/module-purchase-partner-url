@@ -181,6 +181,34 @@ class PurchasePartnerUrl extends AbstractModifier
                                 ]
                             ]
                         ],
+                        'event_category' => [
+                            'arguments' => [
+                                'data' => [
+                                    'config' => [
+                                        'formElement' => Input::NAME,
+                                        'componentType' => Field::NAME,
+                                        'dataType' => Text::NAME,
+                                        'label' => __('Event Category'),
+                                        'dataScope' => 'event_category',
+                                        'placeholder' => 'event category for google analytics'
+                                    ]
+                                ]
+                            ]
+                        ],
+                        'event_action' => [
+                            'arguments' => [
+                                'data' => [
+                                    'config' => [
+                                        'formElement' => Input::NAME,
+                                        'componentType' => Field::NAME,
+                                        'dataType' => Text::NAME,
+                                        'label' => __('Event Action'),
+                                        'dataScope' => 'event_action',
+                                        'placeholder' => 'event action for google analytics'
+                                    ]
+                                ]
+                            ]
+                        ],
                         'actionDelete' => [
                             'arguments' => [
                                 'data' => [

@@ -6,6 +6,11 @@
                 <enabled>1</enabled>
                 <title>Purhase From Partner</title>
             </general>
+            <analytics>
+                <enabled>1</enabled>
+                <event_category>External Link</event_category>
+                <event_action>Partner Link Click</event_action>
+            </analytics>
         </magenable_purchase_partner_url>
     </default>
 </config>

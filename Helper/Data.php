@@ -13,6 +13,12 @@ class Data extends AbstractHelper
 
     const CONFIG_DEFAULT_TITLE = 'magenable_purchase_partner_url/general/title';
 
+    const CONFIG_ANALYTICS_ENABLED = 'magenable_purchase_partner_url/analytics/enabled';
+
+    const CONFIG_DEFAULT_EVENT_CATEGORY = 'magenable_purchase_partner_url/analytics/event_category';
+
+    const CONFIG_DEFAULT_EVENT_ACTION = 'magenable_purchase_partner_url/analytics/event_action';
+
     /**
      * @param string $path
      * @param string $scopeType

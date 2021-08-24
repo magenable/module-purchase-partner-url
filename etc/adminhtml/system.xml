@@ -20,7 +20,22 @@
                     <comment>Default Title for Links</comment>
                 </field>
             </group>
-            <group id="info" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="analytics" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Google Analytics</label>
+                <field id="enabled" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="event_category" sortOrder="1" type="text" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Event Category</label>
+                    <comment>Default Event Category</comment>
+                </field>
+                <field id="event_action" sortOrder="2" type="text" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Event Action</label>
+                    <comment>Default Event Action</comment>
+                </field>
+            </group>
+            <group id="info" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Flush Cache</label>
                 <frontend_model>Magenable\PurchasePartnerUrl\Block\Adminhtml\System\Config\FlushCache</frontend_model>
             </group>
