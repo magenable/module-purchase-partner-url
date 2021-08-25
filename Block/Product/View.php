@@ -17,8 +17,13 @@ class View extends \Magento\Catalog\Block\Product\View
             Data::CONFIG_ENABLED,
             ScopeInterface::SCOPE_STORE
         );
-        if ($moduleIsEnabled && $this->getProduct()->getData(Data::ATTR_CODE)) {
-            return 'Magenable_PurchasePartnerUrl::product/view/addtocart.phtml';
+        $purchasePartnerUrls = $this->getProduct()->getData(Data::ATTR_CODE);
+        if ($moduleIsEnabled && $purchasePartnerUrls) {
+            if (count($purchasePartnerUrls) > 1) {
+                return 'Magenable_PurchasePartnerUrl::product/view/addtocart-multiple.phtml';
+            } else {
+                return 'Magenable_PurchasePartnerUrl::product/view/addtocart.phtml';
+            }
         }
 
         return $this->_template;

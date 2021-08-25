@@ -1,13 +1,17 @@
 .products-grid {
-    .product-item-info:not(:hover):not(.active) {
-        .product-item-purchase-partner {
-            width: 0;
-            overflow: hidden;
+    @media (min-width: 640px) {
+        .product-item-info:not(:hover):not(.active) {
+            .product-item-purchase-partner {
+                width: 0;
+                overflow: hidden;
+            }
         }
     }
     .product-item-purchase-partner {
-        button.primary {
-            margin-bottom: 5px;
+        ~ .product-item-inner {
+            .actions-primary {
+                display: none;
+            }
         }
     }
 }

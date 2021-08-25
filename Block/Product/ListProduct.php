@@ -19,6 +19,11 @@ class ListProduct extends Template
     private $jsonSerializer;
 
     /**
+     * @var array
+     */
+    private $purchasePartnerUrls;
+
+    /**
      * @param Context $context
      * @param Json $jsonSerializer
      * @param array $data
@@ -42,7 +47,11 @@ class ListProduct extends Template
      */
     public function getTemplate(): string
     {
-        return 'Magenable_PurchasePartnerUrl::product/list.phtml';
+        if (count($this->getPurchasePartnerUrls()) > 1) {
+            return 'Magenable_PurchasePartnerUrl::product/list-multiple.phtml';
+        } else {
+            return 'Magenable_PurchasePartnerUrl::product/list.phtml';
+        }
     }
 
     /**
@@ -113,12 +122,16 @@ class ListProduct extends Template
      */
     public function getPurchasePartnerUrls(): array
     {
-        $result = $this->getProduct()->getData(Data::ATTR_CODE);
-        if ($result && $this->isJsonEncoded($result)) {
-            return $this->jsonSerializer->unserialize($result);
+        if (is_null($this->purchasePartnerUrls)) {
+            $result = $this->getProduct()->getData(Data::ATTR_CODE);
+            if ($result && $this->isJsonEncoded($result)) {
+                $this->purchasePartnerUrls = $this->jsonSerializer->unserialize($result);
+            } else {
+                $this->purchasePartnerUrls = [];
+            }
         }
 
-        return [];
+        return $this->purchasePartnerUrls;
     }
 
     /**

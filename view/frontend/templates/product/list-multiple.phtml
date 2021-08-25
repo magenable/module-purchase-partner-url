@@ -1,0 +1,35 @@
+<?php
+/**
+ * @var \Magenable\PurchasePartnerUrl\Block\Product\ListProduct $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+<div class="product-item-purchase-partner">
+    <button type="button"
+            title="<?= $escaper->escapeHtmlAttr($block->getDefaultButtonTitle()) ?>"
+            class="action tocart primary magenable-purchase-partner-url"
+            onclick="this.nextElementSibling.style = '';this.remove();">
+        <span>
+            <?= $escaper->escapeHtml($block->getDefaultButtonTitle()) ?>
+        </span>
+    </button>
+    <select class="magenable-purchase-partner-url" style="display: none;">
+        <option><?= $escaper->escapeHtml(__('-- Select Link --')) ?></option>
+        <?php foreach ($block->getPurchasePartnerUrls() as $purchasePartnerUrl): ?>
+            <?php $buttonTitle = $purchasePartnerUrl['link_title'] ?: $block->getDefaultButtonTitle(); ?>
+            <?php $eventCategory = $purchasePartnerUrl['event_category'] ?: $block->getDefaultEventCategory(); ?>
+            <?php $eventAction = $purchasePartnerUrl['event_action'] ?: $block->getDefaultEventAction(); ?>
+            <option data-link="<?= $escaper->escapeHtmlAttr($purchasePartnerUrl['link']) ?>"
+                    data-event-category="<?= $escaper->escapeHtmlAttr($eventCategory) ?>"
+                    data-event-action="<?= $escaper->escapeHtmlAttr($eventAction) ?>"
+                    data-event-value="<?= $escaper->escapeHtmlAttr($block->getEventValue()) ?>">
+                <?= $escaper->escapeHtml($buttonTitle) ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+</div>
+<script>
+    require(['Magenable_PurchasePartnerUrl/google-analytics'], function(magenableGa) {
+        magenableGa(<?= $block->analyticsIsEnabled() ?>);
+    });
+</script>

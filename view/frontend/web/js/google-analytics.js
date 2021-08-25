@@ -8,22 +8,31 @@ define(['jquery', 'domReady!'], function ($) {
             return false;
         }
         defined = true;
-        $('.magenable-purchase-partner-url').on('click', function(e){
-            var $button = $(e.currentTarget);
+
+        $('.magenable-purchase-partner-url').on('click onchange', function(e){
+            var $element = $(e.currentTarget);
+            if ($element.prop('tagName').toUpperCase() == 'SELECT') {
+                $element = $element.find('option:selected');
+            }
+            if (!$element.data('link')) {
+                return false;
+            }
+            $('body').trigger('processStart');
+
             if (analitycsIsEnabled && window.ga) {
                 ga(
                     'send',
                     {
                         hitType: 'event',
-                        eventCategory: $button.data('event-category'),
-                        eventAction: $button.data('event-action'),
-                        eventLabel: $button.data('link'),
-                        eventValue: $button.data('event-value')
+                        eventCategory: $element.data('event-category'),
+                        eventAction: $element.data('event-action'),
+                        eventLabel: $element.data('link'),
+                        eventValue: $element.data('event-value')
                     }
                 );
             }
 
-            document.location = $button.data('link');
+            document.location = $element.data('link');
         });
     }
 });
