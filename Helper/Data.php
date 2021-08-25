@@ -20,6 +20,11 @@ class Data extends AbstractHelper
     const CONFIG_DEFAULT_EVENT_ACTION = 'magenable_purchase_partner_url/analytics/event_action';
 
     /**
+     * @var bool
+     */
+    private $skipSaleableCheckPlugin = false;
+
+    /**
      * @param string $path
      * @param string $scopeType
      * @param null|int|string $scopeCode
@@ -32,5 +37,18 @@ class Data extends AbstractHelper
             $scopeType,
             $scopeCode
         );
+    }
+
+    /**
+     * @param bool|null $val
+     * @return bool
+     */
+    public function skipSaleableCheckPlugin(?bool $val = null): bool
+    {
+        if (!is_null($val)) {
+            $this->skipSaleableCheckPlugin = $val;
+        }
+
+        return $this->skipSaleableCheckPlugin;
     }
 }

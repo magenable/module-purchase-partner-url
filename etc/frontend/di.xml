@@ -8,6 +8,10 @@
         <plugin name="magenable_pruchase_partner_url_plugin_abstract_product"
                 type="Magenable\PurchasePartnerUrl\Plugin\AbstractProductPlugin" sortOrder="1" disabled="false"/>
     </type>
+    <type name="Magento\Catalog\Block\Product\View">
+        <plugin name="magenable_pruchase_partner_url_plugin_product_view"
+                type="Magenable\PurchasePartnerUrl\Plugin\ProductViewPlugin" sortOrder="1" disabled="false"/>
+    </type>
     <preference for="Magento\Sales\CustomerData\LastOrderedItems"
                 type="Magenable\PurchasePartnerUrl\CustomerData\LastOrderedItemsExtension"/>
 </config>

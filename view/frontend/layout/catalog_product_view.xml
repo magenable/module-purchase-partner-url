@@ -2,5 +2,6 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="product.info.addtocart" class="Magenable\PurchasePartnerUrl\Block\Product\View"/>
+        <referenceBlock name="product.info.addtocart.additional" class="Magenable\PurchasePartnerUrl\Block\Product\View"/>
     </body>
 </page>

@@ -150,20 +150,6 @@ class PurchasePartnerUrl extends AbstractModifier
                         ]
                     ],
                     'children' => [
-                        'link_title' => [
-                            'arguments' => [
-                                'data' => [
-                                    'config' => [
-                                        'formElement' => Input::NAME,
-                                        'componentType' => Field::NAME,
-                                        'dataType' => Text::NAME,
-                                        'label' => __('Link Title'),
-                                        'dataScope' => 'link_title',
-                                        'placeholder' => 'Text Of Button'
-                                    ]
-                                ]
-                            ]
-                        ],
                         'link' => [
                             'arguments' => [
                                 'data' => [
@@ -181,6 +167,20 @@ class PurchasePartnerUrl extends AbstractModifier
                                 ]
                             ]
                         ],
+                        'link_title' => [
+                            'arguments' => [
+                                'data' => [
+                                    'config' => [
+                                        'formElement' => Input::NAME,
+                                        'componentType' => Field::NAME,
+                                        'dataType' => Text::NAME,
+                                        'label' => __('Link Title'),
+                                        'dataScope' => 'link_title',
+                                        'placeholder' => 'Text Of Button'
+                                    ]
+                                ]
+                            ]
+                        ],
                         'event_category' => [
                             'arguments' => [
                                 'data' => [
@@ -188,9 +188,9 @@ class PurchasePartnerUrl extends AbstractModifier
                                         'formElement' => Input::NAME,
                                         'componentType' => Field::NAME,
                                         'dataType' => Text::NAME,
-                                        'label' => __('Event Category'),
+                                        'label' => __('Event Category (Google Analytics)'),
                                         'dataScope' => 'event_category',
-                                        'placeholder' => 'event category for google analytics'
+                                        'placeholder' => 'Event Category'
                                     ]
                                 ]
                             ]
@@ -202,9 +202,9 @@ class PurchasePartnerUrl extends AbstractModifier
                                         'formElement' => Input::NAME,
                                         'componentType' => Field::NAME,
                                         'dataType' => Text::NAME,
-                                        'label' => __('Event Action'),
+                                        'label' => __('Event Action (Google Analytics)'),
                                         'dataScope' => 'event_action',
-                                        'placeholder' => 'event action for google analytics'
+                                        'placeholder' => 'Event Action'
                                     ]
                                 ]
                             ]

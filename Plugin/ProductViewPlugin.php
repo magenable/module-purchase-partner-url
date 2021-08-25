@@ -5,10 +5,11 @@ namespace Magenable\PurchasePartnerUrl\Plugin;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magenable\PurchasePartnerUrl\Helper\Data;
+use Magento\Catalog\Block\Product\View;
 use Magento\Catalog\Model\Product;
 use Magento\Store\Model\ScopeInterface;
 
-class ProductPlugin
+class ProductViewPlugin
 {
     /**
      * @var ScopeConfigInterface
@@ -32,21 +33,18 @@ class ProductPlugin
     }
 
     /**
-     * @param Product $subject
-     * @param bool $result
-     * @return bool
+     * @param View $subject
+     * @param Product $result
+     * @return Product
      */
-    public function afterIsSaleable(Product $subject, bool $result): bool
+    public function afterGetProduct(View $subject, Product $result): Product
     {
-        if ($this->dataHelper->skipSaleableCheckPlugin()) {
-            return $result;
-        }
         $moduleIsEnabled = $this->scopeConfig->getValue(
             Data::CONFIG_ENABLED,
             ScopeInterface::SCOPE_STORE
         );
-        if ($moduleIsEnabled && $subject->getData(Data::ATTR_CODE) != null) {
-            return false;
+        if ($moduleIsEnabled) {
+            $this->dataHelper->skipSaleableCheckPlugin(true);
         }
 
         return $result;
