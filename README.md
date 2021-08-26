@@ -27,15 +27,15 @@ Go to **Stores** > **Settings** > **Configuration** > **Magenable** > **Purchase
 
 Set `Enabled` to **YES** if you want the module to work.
 
-Update `Title of Links` with the required text.
+Update `Title of Links` with the required text, if it needs.
 
 **Google Analytics**
 
 Set `Enabled` to **YES** if you want after click on links sent events to Google Analytics.
 
-Update `Event Category` with the required value.
+Update `Event Category` with the required value, if it needs.
 
-Update `Event Action` with the required value.
+Update `Event Action` with the required value, if it needs.
 
 After changing any setting need to flush cache: for it go to **System** -> **Cache Management** and click `Flush Magento Cache`.
 
@@ -66,4 +66,4 @@ Then save product.
 ![purchase-partner-url-result-list-2](https://user-images.githubusercontent.com/34573954/130892217-9add2c9d-abe7-4b6b-82c2-a1e3c8af0d4c.png)
 ![purchase-partner-url-result-view-2](https://user-images.githubusercontent.com/34573954/130892305-37ebba04-4a94-4e55-a852-2e07558c7ac6.png)
 
-Also, after clicking on link occurs sending event to Google Analytics (if this not disabled in configuration of module and Google Analytics module is enabled, and configured).
+- Also, after clicking on link occurs sending event to Google Analytics (if this not disabled in configuration of module and Google Analytics module is enabled, and configured).
