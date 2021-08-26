@@ -1,7 +1,7 @@
 # Purchase From Partner
 
-**Purchase From Partner** is a Magento 2 module that allows you to replace standard `Add to Cart` button with a links to external websites. The module also sends events to Google analytics when clicking on the links, if it is necessary.<br>
-Typical use case is redirecting from brand website to retail partner website. Partner url can be defined on product level.
+**Purchase From Partner** is a Magento 2 module that allows you to replace standard `Add to Cart` button with links to external websites where visitors may purchase the products. Think about Amazon affiliate store, cases when a brand has products available exlusive to retail partners. The module may sends events to Google analytics when clicking on the links for tracking/reporting.<br>
+There may be one or more partner URL per product. The URLs are defined on product level, so some of your product may have normal Add to cart and some partner links.
 
 
 ## Installation
@@ -31,13 +31,13 @@ Update `Title of Links` with the required text, if it needs.
 
 **Google Analytics**
 
-Set `Enabled` to **YES** if you want after click on links sent events to Google Analytics.
+Set `Enabled` to **YES** if you want sent events to Google Analytics after partner links clicked .
 
-Update `Event Category` with the required value, if it needs.
+Update `Event Category` Google Analytic property with the your value, if you wish.
 
-Update `Event Action` with the required value, if it needs.
+Update `Event Action` Google Analytic property with the your value, if you wish.
 
-After changing any setting need to flush cache: for it go to **System** -> **Cache Management** and click `Flush Magento Cache`.
+After changing any setting you need to flush cache: for it go to **System** -> **Cache Management** and click `Flush Magento Cache`.
 
 ![purchase-partner-url-configuration](https://user-images.githubusercontent.com/34573954/130889492-54b59101-5b76-43dc-a697-71398b64d959.png)
 
@@ -56,12 +56,12 @@ Then save product.
 
 ### Storefront view:
 
-- If the product is filled with only one link, then after clicking on the button there will be a transition to this link.
+- If the product is filled with only one link, then after clicking on the button users go to a partner website.
 
 ![purchase-partner-url-result-list](https://user-images.githubusercontent.com/34573954/130891887-6ddea932-c424-480f-9dae-21c2733c8713.png)
 ![purchase-partner-url-result-view](https://user-images.githubusercontent.com/34573954/130892282-74d5879d-7323-49e9-9d2c-f744bf90d4b1.png)
 
-- If product filled with multiple links then after clicking on the button appear drop-down with links, after clicking on which performs transition.
+- If there are multiple links defined for a product, after clicking on the button, drop-down with all partner links apppears, after clicking one of them users go to a partner website.
 
 ![purchase-partner-url-result-list-2](https://user-images.githubusercontent.com/34573954/130892217-9add2c9d-abe7-4b6b-82c2-a1e3c8af0d4c.png)
 ![purchase-partner-url-result-view-2](https://user-images.githubusercontent.com/34573954/130892305-37ebba04-4a94-4e55-a852-2e07558c7ac6.png)
