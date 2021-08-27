@@ -79,50 +79,6 @@ class ListProduct extends Template
     }
 
     /**
-     * @return string
-     */
-    public function getDefaultButtonTitle(): string
-    {
-        return $this->_scopeConfig->getValue(
-            Data::CONFIG_DEFAULT_TITLE,
-            ScopeInterface::SCOPE_STORE
-        );
-    }
-
-    /**
-     * @return int
-     */
-    public function analyticsIsEnabled(): int
-    {
-        return (int)$this->_scopeConfig->getValue(
-            Data::CONFIG_ANALYTICS_ENABLED,
-            ScopeInterface::SCOPE_STORE
-        );
-    }
-
-    /**
-     * @return string
-     */
-    public function getDefaultEventCategory(): string
-    {
-        return $this->_scopeConfig->getValue(
-            Data::CONFIG_DEFAULT_EVENT_CATEGORY,
-            ScopeInterface::SCOPE_STORE
-        );
-    }
-
-    /**
-     * @return string
-     */
-    public function getDefaultEventAction(): string
-    {
-        return $this->_scopeConfig->getValue(
-            Data::CONFIG_DEFAULT_EVENT_ACTION,
-            ScopeInterface::SCOPE_STORE
-        );
-    }
-
-    /**
      * @return array
      */
     public function getPurchasePartnerUrls(): array

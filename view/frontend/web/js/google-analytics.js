@@ -3,7 +3,7 @@ define(['jquery', 'domReady!'], function ($) {
 
     var defined = false;
 
-    return function(analitycsIsEnabled) {
+    return function(analitycsIsEnabled, isOpenLinkInNewTab) {
         if (defined) {
             return false;
         }
@@ -39,7 +39,16 @@ define(['jquery', 'domReady!'], function ($) {
                 );
             }
 
-            document.location = $element.data('link');
+            if (isOpenLinkInNewTab) {
+                window.open(
+                    $element.data('link'),
+                    '_blank'
+                ).focus();
+                $('body').trigger('processStop');
+            } else {
+                document.location = $element.data('link');
+            }
+
             e.preventDefault();
         });
     }

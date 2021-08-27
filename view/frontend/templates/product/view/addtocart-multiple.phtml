@@ -3,22 +3,25 @@
  * @var \Magenable\PurchasePartnerUrl\Block\Product\View $block
  * @var \Magento\Framework\Escaper $escaper
  */
+
+/** @var $viewModel \Magenable\PurchasePartnerUrl\ViewModel\ViewModel */
+$viewModel = $block->getViewModel();
 ?>
 <div class="box-tocart">
     <div class="fieldset">
         <div class="actions product-item-purchase-partner">
             <button type="button"
-                    title="<?= $escaper->escapeHtmlAttr($block->getDefaultButtonTitle()) ?>"
+                    title="<?= $escaper->escapeHtmlAttr($viewModel->getDefaultButtonTitle()) ?>"
                     class="action primary">
                 <span>
-                    <?= $escaper->escapeHtml($block->getDefaultButtonTitle()) ?>
+                    <?= $escaper->escapeHtml($viewModel->getDefaultButtonTitle()) ?>
                 </span>
             </button>
             <div class="magenable-purchase-partner-urls-wrapper hidden">
                 <?php foreach ($block->getPurchasePartnerUrls() as $purchasePartnerUrl): ?>
-                    <?php $buttonTitle = $purchasePartnerUrl['link_title'] ?: $block->getDefaultButtonTitle(); ?>
-                    <?php $eventCategory = $purchasePartnerUrl['event_category'] ?: $block->getDefaultEventCategory(); ?>
-                    <?php $eventAction = $purchasePartnerUrl['event_action'] ?: $block->getDefaultEventAction(); ?>
+                    <?php $buttonTitle = $purchasePartnerUrl['link_title'] ?: $viewModel->getDefaultButtonTitle(); ?>
+                    <?php $eventCategory = $purchasePartnerUrl['event_category'] ?: $viewModel->getDefaultEventCategory(); ?>
+                    <?php $eventAction = $purchasePartnerUrl['event_action'] ?: $viewModel->getDefaultEventAction(); ?>
                     <button class="action primary magenable-purchase-partner-url"
                             data-link="<?= $escaper->escapeHtmlAttr($purchasePartnerUrl['link']) ?>"
                             data-event-category="<?= $escaper->escapeHtmlAttr($eventCategory) ?>"
@@ -33,7 +36,7 @@
 </div>
 <script>
     require(['Magenable_PurchasePartnerUrl/google-analytics'], function(magenableGa) {
-        magenableGa(<?= $block->analyticsIsEnabled() ?>);
+        magenableGa(<?= $viewModel->analyticsIsEnabled() ?>, <?= $viewModel->isOpenLinkInNewTab() ?>);
     });
 </script>
 

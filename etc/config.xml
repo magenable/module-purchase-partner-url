@@ -6,6 +6,7 @@
                 <enabled>1</enabled>
                 <title>Purchase From Partner</title>
                 <show_all_links>0</show_all_links>
+                <open_new_tab>1</open_new_tab>
             </general>
             <analytics>
                 <enabled>1</enabled>

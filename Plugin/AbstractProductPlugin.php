@@ -5,6 +5,7 @@ namespace Magenable\PurchasePartnerUrl\Plugin;
 
 use Magento\Framework\View\LayoutFactory;
 use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magenable\PurchasePartnerUrl\ViewModel\ViewModel;
 use Magento\Catalog\Block\Product\AbstractProduct;
 use Magento\Catalog\Model\Product;
 use Magento\Store\Model\ScopeInterface;
@@ -24,15 +25,22 @@ class AbstractProductPlugin
     private $scopeConfig;
 
     /**
+     * @var ViewModel
+     */
+    private $viewModel;
+
+    /**
      * @param LayoutFactory $layoutFactory
      * @param ScopeConfigInterface $scopeConfig
      */
     public function __construct(
         LayoutFactory $layoutFactory,
-        ScopeConfigInterface $scopeConfig
+        ScopeConfigInterface $scopeConfig,
+        ViewModel $viewModel
     ) {
         $this->layoutFactory = $layoutFactory;
         $this->scopeConfig = $scopeConfig;
+        $this->viewModel = $viewModel;
     }
 
     /**
@@ -49,7 +57,13 @@ class AbstractProductPlugin
         );
         if ($moduleIsEnabled && $product->getData(Data::ATTR_CODE)) {
             $output = $this->layoutFactory->create()
-                ->createBlock(ListProduct::class)
+                ->createBlock(
+                    ListProduct::class,
+                    'magenable.purchase.partner.url.list.view',
+                    ['data' => [
+                        'view_model' => $this->viewModel
+                    ]]
+                )
                 ->setProduct($product)
                 ->toHtml();
 

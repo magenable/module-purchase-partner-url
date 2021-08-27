@@ -2,7 +2,7 @@
     "name": "magenable/purchase-partner-url",
     "description": "A module that allow specify partner url for any product",
     "type": "magento2-module",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "require": {
         "php": ">=7.1.0"
     },
