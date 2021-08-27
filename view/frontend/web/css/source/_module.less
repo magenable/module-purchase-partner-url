@@ -15,3 +15,42 @@
         }
     }
 }
+.product-item-purchase-partner {
+    position: relative;
+    z-index: 3;
+
+    button.action.primary {
+        display: block;
+        margin-top: 5px;
+    }
+
+    .magenable-purchase-partner-urls-wrapper {
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+        &.hidden {
+            display: none;
+        }
+    }
+}
+body.catalog-product-view {
+    .product-item-purchase-partner {
+        button {
+            line-height: 2.2rem;
+            padding: 14px 17px;
+            font-size: 1.8rem;
+        }
+    }
+}
+body:not(.catalog-product-view) {
+    .product-item-purchase-partner {
+        button.action.primary {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 0;
+            line-height: 1;
+            font-size: 1.3rem;
+        }
+    }
+}

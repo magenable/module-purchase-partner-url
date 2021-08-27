@@ -6,30 +6,28 @@
 ?>
 <div class="box-tocart">
     <div class="fieldset">
-        <div class="actions">
+        <div class="actions product-item-purchase-partner">
             <button type="button"
                     title="<?= $escaper->escapeHtmlAttr($block->getDefaultButtonTitle()) ?>"
-                    class="action primary tocart"
-                    id="product-addtocart-button"
-                    onclick="this.nextElementSibling.style = '';this.remove();">
+                    class="action primary">
                 <span>
                     <?= $escaper->escapeHtml($block->getDefaultButtonTitle()) ?>
                 </span>
             </button>
-            <select class="magenable-purchase-partner-url" style="display: none;">
-                <option><?= $escaper->escapeHtml(__('-- Select Link --')) ?></option>
+            <div class="magenable-purchase-partner-urls-wrapper hidden">
                 <?php foreach ($block->getPurchasePartnerUrls() as $purchasePartnerUrl): ?>
-                <?php $buttonTitle = $purchasePartnerUrl['link_title'] ?: $block->getDefaultButtonTitle(); ?>
-                <?php $eventCategory = $purchasePartnerUrl['event_category'] ?: $block->getDefaultEventCategory(); ?>
-                <?php $eventAction = $purchasePartnerUrl['event_action'] ?: $block->getDefaultEventAction(); ?>
-                <option data-link="<?= $escaper->escapeHtmlAttr($purchasePartnerUrl['link']) ?>"
-                        data-event-category="<?= $escaper->escapeHtmlAttr($eventCategory) ?>"
-                        data-event-action="<?= $escaper->escapeHtmlAttr($eventAction) ?>"
-                        data-event-value="<?= $escaper->escapeHtmlAttr($block->getEventValue()) ?>">
-                    <?= $escaper->escapeHtml($buttonTitle) ?>
-                </option>
+                    <?php $buttonTitle = $purchasePartnerUrl['link_title'] ?: $block->getDefaultButtonTitle(); ?>
+                    <?php $eventCategory = $purchasePartnerUrl['event_category'] ?: $block->getDefaultEventCategory(); ?>
+                    <?php $eventAction = $purchasePartnerUrl['event_action'] ?: $block->getDefaultEventAction(); ?>
+                    <button class="action primary magenable-purchase-partner-url"
+                            data-link="<?= $escaper->escapeHtmlAttr($purchasePartnerUrl['link']) ?>"
+                            data-event-category="<?= $escaper->escapeHtmlAttr($eventCategory) ?>"
+                            data-event-action="<?= $escaper->escapeHtmlAttr($eventAction) ?>"
+                            data-event-value="<?= $escaper->escapeHtmlAttr($block->getEventValue()) ?>">
+                        <?= $escaper->escapeHtml($buttonTitle) ?>
+                    </button>
                 <?php endforeach; ?>
-            </select>
+            </div>
         </div>
     </div>
 </div>

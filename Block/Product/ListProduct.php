@@ -47,7 +47,12 @@ class ListProduct extends Template
      */
     public function getTemplate(): string
     {
-        if (count($this->getPurchasePartnerUrls()) > 1) {
+        $showAllLinks = (int)$this->_scopeConfig->getValue(
+            Data::CONFIG_SHOW_ALL_LINKS,
+            ScopeInterface::SCOPE_STORE
+        );
+
+        if (count($this->getPurchasePartnerUrls()) > 1 && !$showAllLinks) {
             return 'Magenable_PurchasePartnerUrl::product/list-multiple.phtml';
         } else {
             return 'Magenable_PurchasePartnerUrl::product/list.phtml';

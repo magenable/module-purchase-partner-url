@@ -19,7 +19,12 @@ class View extends \Magento\Catalog\Block\Product\View
         );
         $purchasePartnerUrls = $this->getProduct()->getData(Data::ATTR_CODE);
         if ($moduleIsEnabled && $purchasePartnerUrls) {
-            if (count($purchasePartnerUrls) > 1) {
+            $showAllLinks = (int)$this->_scopeConfig->getValue(
+                Data::CONFIG_SHOW_ALL_LINKS,
+                ScopeInterface::SCOPE_STORE
+            );
+
+            if (count($purchasePartnerUrls) > 1 && !$showAllLinks) {
                 return 'Magenable_PurchasePartnerUrl::product/view/addtocart-multiple.phtml';
             } else {
                 return 'Magenable_PurchasePartnerUrl::product/view/addtocart.phtml';

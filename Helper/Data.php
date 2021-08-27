@@ -13,6 +13,8 @@ class Data extends AbstractHelper
 
     const CONFIG_DEFAULT_TITLE = 'magenable_purchase_partner_url/general/title';
 
+    const CONFIG_SHOW_ALL_LINKS = 'magenable_purchase_partner_url/general/show_all_links';
+
     const CONFIG_ANALYTICS_ENABLED = 'magenable_purchase_partner_url/analytics/enabled';
 
     const CONFIG_DEFAULT_EVENT_CATEGORY = 'magenable_purchase_partner_url/analytics/event_category';

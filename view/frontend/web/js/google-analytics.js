@@ -9,6 +9,13 @@ define(['jquery', 'domReady!'], function ($) {
         }
         defined = true;
 
+        $('.product-item-purchase-partner > button').on('click', function(e){
+            $(e.currentTarget.nextElementSibling).toggleClass('hidden');
+        });
+        $('.product-item-purchase-partner').on('mouseleave', function(e){
+            $(e.currentTarget).find('.magenable-purchase-partner-urls-wrapper').addClass('hidden');
+        });
+
         $('.magenable-purchase-partner-url').on('click onchange', function(e){
             var $element = $(e.currentTarget);
             if ($element.prop('tagName').toUpperCase() == 'SELECT') {
@@ -33,6 +40,7 @@ define(['jquery', 'domReady!'], function ($) {
             }
 
             document.location = $element.data('link');
+            e.preventDefault();
         });
     }
 });

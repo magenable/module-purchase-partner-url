@@ -6,14 +6,14 @@
 ?>
 <div class="box-tocart">
     <div class="fieldset">
-        <div class="actions">
+        <div class="actions product-item-purchase-partner">
             <?php foreach ($block->getPurchasePartnerUrls() as $purchasePartnerUrl): ?>
             <?php $buttonTitle = $purchasePartnerUrl['link_title'] ?: $block->getDefaultButtonTitle(); ?>
             <?php $eventCategory = $purchasePartnerUrl['event_category'] ?: $block->getDefaultEventCategory(); ?>
             <?php $eventAction = $purchasePartnerUrl['event_action'] ?: $block->getDefaultEventAction(); ?>
             <button type="button"
                     title="<?= $escaper->escapeHtmlAttr($buttonTitle) ?>"
-                    class="action primary tocart magenable-purchase-partner-url"
+                    class="action primary magenable-purchase-partner-url"
                     data-link="<?= $escaper->escapeHtmlAttr($purchasePartnerUrl['link']) ?>"
                     data-event-category="<?= $escaper->escapeHtmlAttr($eventCategory) ?>"
                     data-event-action="<?= $escaper->escapeHtmlAttr($eventAction) ?>"

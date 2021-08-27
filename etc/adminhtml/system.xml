@@ -19,6 +19,10 @@
                     <label>Title of Links</label>
                     <comment>Default Title for Links</comment>
                 </field>
+                <field id="show_all_links" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Show All Links at Once</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
             </group>
             <group id="analytics" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Google Analytics</label>
