@@ -29,6 +29,10 @@ Set `Enabled` to **YES** if you want the module to work.
 
 Update `Title of Links` with the required text, if it needs.
 
+Set `Show All Links at Once` to **YES** if you want all buttons to be displayed at once.
+
+Set `Open Link in New Tab` to **NO** if you want link opens in current tab.
+
 **Google Analytics**
 
 Set `Enabled` to **YES** if you want sent events to Google Analytics after partner links clicked .
@@ -39,7 +43,7 @@ Update `Event Action` Google Analytic property with the your value, if you wish.
 
 After changing any setting you need to flush cache: for it go to **System** -> **Cache Management** and click `Flush Magento Cache`.
 
-![purchase-partner-url-configuration](https://user-images.githubusercontent.com/34573954/130889492-54b59101-5b76-43dc-a697-71398b64d959.png)
+![purchase-partner-url-configuration](https://user-images.githubusercontent.com/34573954/131064786-b6c17755-596f-47a7-8f68-15c2ff3276bf.png)
 
 ### Adding Purchase Partner Url:
 
@@ -56,14 +60,14 @@ Then save the product.
 
 ### Storefront view:
 
-- If the only one link set for a product, then after clicking on the button users go to a partner website.
+- If the only one link set for a product (or enabled setting `Show All Links at Once`), then after clicking on the button users go to a partner website.
 
-![purchase-partner-url-result-list](https://user-images.githubusercontent.com/34573954/130891887-6ddea932-c424-480f-9dae-21c2733c8713.png)
-![purchase-partner-url-result-view](https://user-images.githubusercontent.com/34573954/130892282-74d5879d-7323-49e9-9d2c-f744bf90d4b1.png)
+![purchase-partner-url-result-list](https://user-images.githubusercontent.com/34573954/131065580-af76c1df-eecd-4007-a67a-cc99ac64d12c.png)
+![purchase-partner-url-result-view](https://user-images.githubusercontent.com/34573954/131065583-a9b30954-298e-4ea6-b17b-6f6d1612d657.png)
 
-- If there are multiple links defined for a product, after clicking on the button, drop-down with all partner links apppears, after clicking one of them users go to a selected partner website.
+- If there are multiple links defined for a product (and disabled setting `Show All Links at Once`), after clicking on the button, all partner links apppears, after clicking one of them users go to a selected partner website.
 
-![purchase-partner-url-result-list-2](https://user-images.githubusercontent.com/34573954/130892217-9add2c9d-abe7-4b6b-82c2-a1e3c8af0d4c.png)
-![purchase-partner-url-result-view-2](https://user-images.githubusercontent.com/34573954/130892305-37ebba04-4a94-4e55-a852-2e07558c7ac6.png)
+![purchase-partner-url-result-list-2](https://user-images.githubusercontent.com/34573954/131065629-91150165-1fec-4419-83e7-97df49cd602e.png)
+![purchase-partner-url-result-view-2](https://user-images.githubusercontent.com/34573954/131065635-dd53d9a2-2c06-46d4-9e75-3708e980959d.png)
 
 - Also, after clicking on a link the event is sent to Google Analytics (if this not disabled in configuration of module and Google Analytics module is enabled and configured).
