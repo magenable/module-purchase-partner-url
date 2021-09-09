@@ -3,9 +3,10 @@ declare(strict_types=1);
 
 namespace Magenable\PurchasePartnerUrl\ViewModel;
 
-use Magento\Framework\View\Element\Block\ArgumentInterface;
-use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magenable\PurchasePartnerUrl\Helper\Data;
+use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Block\ArgumentInterface;
 use Magento\Store\Model\ScopeInterface;
 
 class ViewModel implements ArgumentInterface
@@ -16,12 +17,20 @@ class ViewModel implements ArgumentInterface
     private $scopeConfig;
 
     /**
+     * @var Escaper
+     */
+    private $escaper;
+
+    /**
      * @param ScopeConfigInterface $scopeConfig
+     * @param Escaper $escaper
      */
     public function __construct(
-        ScopeConfigInterface $scopeConfig
+        ScopeConfigInterface $scopeConfig,
+        Escaper $escaper
     ) {
         $this->scopeConfig = $scopeConfig;
+        $this->escaper = $escaper;
     }
 
     /**
@@ -77,5 +86,13 @@ class ViewModel implements ArgumentInterface
             Data::CONFIG_OPEN_NEW_TAB,
             ScopeInterface::SCOPE_STORE
         );
+    }
+
+    /**
+     * @return Escaper
+     */
+    public function getEscaper()
+    {
+        return $this->escaper;
     }
 }

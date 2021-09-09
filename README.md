@@ -12,9 +12,19 @@ Run the following command in Magento 2 root folder
 
 ```
 composer require magenable/purchase-partner-url
-php bin/magento module:enable Magenable_PurchasePartnerUrl
-php bin/magento setup:upgrade
-php bin/magento setup:static-content:deploy
+bin/magento module:enable Magenable_PurchasePartnerUrl
+bin/magento setup:upgrade
+bin/magento setup:static-content:deploy
+```
+## Upgrade
+
+### Composer:
+
+Run the following command in Magento 2 root folder
+
+```
+composer update magenable/purchase-partner-url
+bin/magento setup:upgrade
 ```
 
 ## User Guide
@@ -65,7 +75,7 @@ Then save the product.
 ![purchase-partner-url-result-list](https://user-images.githubusercontent.com/34573954/131065580-af76c1df-eecd-4007-a67a-cc99ac64d12c.png)
 ![purchase-partner-url-result-view](https://user-images.githubusercontent.com/34573954/131065583-a9b30954-298e-4ea6-b17b-6f6d1612d657.png)
 
-- If there are multiple links defined for a product (and disabled setting `Show All Links at Once`), after clicking on the button, all partner links apppears, after clicking one of them users go to a selected partner website.
+- If there are multiple links defined for a product (and disabled setting `Show All Links at Once`), after clicking on the button, all partner links appears, after clicking one of them users go to a selected partner website.
 
 ![purchase-partner-url-result-list-2](https://user-images.githubusercontent.com/34573954/131065629-91150165-1fec-4419-83e7-97df49cd602e.png)
 ![purchase-partner-url-result-view-2](https://user-images.githubusercontent.com/34573954/131065635-dd53d9a2-2c06-46d4-9e75-3708e980959d.png)

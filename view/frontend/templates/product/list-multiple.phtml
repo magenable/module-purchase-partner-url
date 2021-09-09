@@ -1,11 +1,12 @@
 <?php
 /**
  * @var \Magenable\PurchasePartnerUrl\Block\Product\ListProduct $block
- * @var \Magento\Framework\Escaper $escaper
  */
 
 /** @var $viewModel \Magenable\PurchasePartnerUrl\ViewModel\ViewModel */
 $viewModel = $block->getViewModel();
+/** @var $escaper \Magento\Framework\Escaper */
+$escaper = $viewModel->getEscaper();
 ?>
 <div class="product-item-purchase-partner">
     <button type="button"
