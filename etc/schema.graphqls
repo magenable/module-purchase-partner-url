@@ -1,0 +1,21 @@
+interface ProductInterface {
+    purchase_partner_url_show_all_links: Boolean
+    @resolver(class: "\\Magenable\\PurchasePartnerUrl\\Model\\Resolver\\PurchasePartnerUrlResolver")
+    @doc(description: "Show All Purchase Partner Links at Once")
+    purchase_partner_url_open_in_new_tab: Boolean
+    @resolver(class: "\\Magenable\\PurchasePartnerUrl\\Model\\Resolver\\PurchasePartnerUrlResolver")
+    @doc(description: "Open Purchase Partner Link in New Tab")
+    purchase_partner_url_ga_enabled: Boolean
+    @resolver(class: "\\Magenable\\PurchasePartnerUrl\\Model\\Resolver\\PurchasePartnerUrlResolver")
+    @doc(description: "Google Analytics is Enabled for Purchase Partner Links")
+    purchase_partner_urls: [PurchasePartnerUrl]
+    @doc(description: "The purchase partner links assigned to a product")
+    @resolver(class: "\\Magenable\\PurchasePartnerUrl\\Model\\Resolver\\PurchasePartnerUrlsResolver")
+}
+
+type PurchasePartnerUrl @doc(description: "") {
+    link: String @doc(description: "The display name of the category.")
+    link_title: String @doc(description: "The display name of the category.")
+    event_category: String @doc(description: "The display name of the category.")
+    event_action: String @doc(description: "The display name of the category.")
+}
