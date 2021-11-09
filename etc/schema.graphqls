@@ -1,21 +1,30 @@
 interface ProductInterface {
-    purchase_partner_url_show_all_links: Boolean
-    @resolver(class: "\\Magenable\\PurchasePartnerUrl\\Model\\Resolver\\PurchasePartnerUrlResolver")
-    @doc(description: "Show All Purchase Partner Links at Once")
-    purchase_partner_url_open_in_new_tab: Boolean
-    @resolver(class: "\\Magenable\\PurchasePartnerUrl\\Model\\Resolver\\PurchasePartnerUrlResolver")
-    @doc(description: "Open Purchase Partner Link in New Tab")
-    purchase_partner_url_ga_enabled: Boolean
-    @resolver(class: "\\Magenable\\PurchasePartnerUrl\\Model\\Resolver\\PurchasePartnerUrlResolver")
-    @doc(description: "Google Analytics is Enabled for Purchase Partner Links")
     purchase_partner_urls: [PurchasePartnerUrl]
     @doc(description: "The purchase partner links assigned to a product")
     @resolver(class: "\\Magenable\\PurchasePartnerUrl\\Model\\Resolver\\PurchasePartnerUrlsResolver")
 }
 
-type PurchasePartnerUrl @doc(description: "") {
-    link: String @doc(description: "The display name of the category.")
-    link_title: String @doc(description: "The display name of the category.")
-    event_category: String @doc(description: "The display name of the category.")
-    event_action: String @doc(description: "The display name of the category.")
+type PurchasePartnerUrl @doc(description: "A purchase partner link assigned to a product") {
+    link: String @doc(description: "Partner link")
+    link_title: String @doc(description: "The title of partner link")
+    event_category: String @doc(description: "Event category for Google Analytics")
+    event_action: String @doc(description: "Event action for Google Analytics")
+}
+
+type Query {
+    getPurchasePartnerUrlConfig: PurchasePartnerUrlConfig @resolver(class: "\\Magenable\\PurchasePartnerUrl\\Model\\Resolver\\PurchasePartnerUrlConfigResolver")
+    @doc(description: "Return the configuration for purchase partner links")
+}
+
+type PurchasePartnerUrlConfig @doc(description: "Configuration of purchase partner links") {
+    default_title: String
+    @doc(description: "Default title for purchase partner link")
+    show_all_links: Boolean
+    @doc(description: "Show all purchase partner links at once")
+    open_in_new_tab: Boolean
+    @doc(description: "Open purchase partner link in new tab")
+    ga_enabled: Boolean
+    @doc(description: "Google Analytics is enabled for purchase partner links")
+    ga_account: String
+    @doc(description: "Google Analytics account number")
 }

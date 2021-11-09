@@ -3,6 +3,8 @@
 **Purchase From Partner** is a Magento 2 module that allows you to replace standard `Add to Cart` button with links to external websites where visitors may purchase the products. Think about Amazon affiliate store, cases when a brand has products available exlusive to retail partners. The module may sends events to Google analytics when clicking on the links for tracking/reporting.<br>
 There may be one or more partner URL per product. The URLs are defined on product level, so some of your product may have normal Add to cart and some partner links.
 
+## PWA Studio
+The extension for Magento PWA Studio you can find here: https://www.npmjs.com/package/@magenable/purchase-partner-url
 
 ## Installation
 

@@ -8,8 +8,9 @@ use Magento\Framework\GraphQl\Config\Element\Field;
 use Magento\Framework\GraphQl\Query\ResolverInterface;
 use Magento\Framework\GraphQl\Schema\Type\ResolveInfo;
 use Magento\Store\Model\ScopeInterface;
+use Magento\GoogleAnalytics\Helper\Data as GAHelper;
 
-class PurchasePartnerUrlResolver implements ResolverInterface
+class PurchasePartnerUrlConfigResolver implements ResolverInterface
 {
     /**
      * @var Data
@@ -26,25 +27,29 @@ class PurchasePartnerUrlResolver implements ResolverInterface
         $this->dataHelper = $dataHelper;
     }
 
-    public function resolve(Field $field, $context, ResolveInfo $info, array $value = null, array $args = null): bool
+    public function resolve(Field $field, $context, ResolveInfo $info, array $value = null, array $args = null)
     {
-        if ($field->getName() === 'purchase_partner_url_show_all_links') {
-            return (bool)$this->dataHelper->getConfigValue(
+        return [
+            'default_title' => (string)$this->dataHelper->getConfigValue(
+                Data::CONFIG_DEFAULT_TITLE,
+                ScopeInterface::SCOPE_STORE
+            ),
+            'show_all_links' => (bool)$this->dataHelper->getConfigValue(
                 Data::CONFIG_SHOW_ALL_LINKS,
                 ScopeInterface::SCOPE_STORE
-            );
-        }
-        if ($field->getName() === 'purchase_partner_url_open_in_new_tab') {
-            return (bool)$this->dataHelper->getConfigValue(
+            ),
+            'open_in_new_tab' => (bool)$this->dataHelper->getConfigValue(
                 Data::CONFIG_OPEN_NEW_TAB,
                 ScopeInterface::SCOPE_STORE
-            );
-        }
-        if ($field->getName() === 'purchase_partner_url_ga_enabled') {
-            return (bool)$this->dataHelper->getConfigValue(
+            ),
+            'ga_enabled' => (bool)$this->dataHelper->getConfigValue(
                 Data::CONFIG_ANALYTICS_ENABLED,
                 ScopeInterface::SCOPE_STORE
-            );
-        }
+            ),
+            'ga_account' => (string)$this->dataHelper->getConfigValue(
+                GAHelper::XML_PATH_ACCOUNT,
+                ScopeInterface::SCOPE_STORE
+            )
+        ];
     }
 }
