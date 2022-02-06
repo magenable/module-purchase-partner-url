@@ -49,7 +49,7 @@ class Data extends AbstractHelper
      */
     public function skipSaleableCheckPlugin(?bool $val = null): bool
     {
-        if (!is_null($val)) {
+        if (null !== $val) {
             $this->skipSaleableCheckPlugin = $val;
         }
 

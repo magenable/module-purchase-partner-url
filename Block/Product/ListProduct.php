@@ -83,7 +83,7 @@ class ListProduct extends Template
      */
     public function getPurchasePartnerUrls(): array
     {
-        if (is_null($this->purchasePartnerUrls)) {
+        if (null === $this->purchasePartnerUrls) {
             $result = $this->getProduct()->getData(Data::ATTR_CODE);
             if ($result && $this->isJsonEncoded($result)) {
                 $this->purchasePartnerUrls = $this->jsonSerializer->unserialize($result);
