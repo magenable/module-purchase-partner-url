@@ -47,7 +47,7 @@ class View extends \Magento\Catalog\Block\Product\View
      */
     public function getEventValue(): int
     {
-        $price = $this->getProduct()->getPrice();
+        $price = (float)$this->getProduct()->getPrice();
         if ($price < 1) {
             $price = 1;
         } else {

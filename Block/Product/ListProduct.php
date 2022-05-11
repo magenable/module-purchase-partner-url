@@ -100,7 +100,7 @@ class ListProduct extends Template
      */
     public function getEventValue(): int
     {
-        $price = $this->getProduct()->getPrice();
+        $price = (float)$this->getProduct()->getPrice();
         if ($price < 1) {
             $price = 1;
         } else {
