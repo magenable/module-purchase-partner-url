@@ -8,7 +8,14 @@ $viewModel = $block->getViewModel();
 /** @var $escaper \Magento\Framework\Escaper */
 $escaper = $viewModel->getEscaper();
 ?>
-<div class="product-item-purchase-partner">
+<div class="product-item-purchase-partner"
+     data-mage-init='{
+        "Magenable_PurchasePartnerUrl/js/google-analytics": {
+            "analitycsIsEnabled": <?= $escaper->escapeJs($viewModel->analyticsIsEnabled()) ?>,
+            "isOpenLinkInNewTab": <?= $escaper->escapeJs($viewModel->isOpenLinkInNewTab()) ?>
+        }
+    }'
+>
     <button type="button"
             title="<?= $escaper->escapeHtmlAttr($viewModel->getDefaultButtonTitle()) ?>"
             class="action primary">
@@ -31,11 +38,3 @@ $escaper = $viewModel->getEscaper();
         <?php endforeach; ?>
     </div>
 </div>
-<script>
-    require(['Magenable_PurchasePartnerUrl/google-analytics'], function(magenableGa) {
-        magenableGa(
-            <?= $escaper->escapeJs($viewModel->analyticsIsEnabled()) ?>,
-            <?= $escaper->escapeJs($viewModel->isOpenLinkInNewTab()) ?>
-        );
-    });
-</script>

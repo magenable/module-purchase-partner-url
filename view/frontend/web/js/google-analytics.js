@@ -3,7 +3,7 @@ define(['jquery', 'domReady!'], function ($) {
 
     var defined = false;
 
-    return function(analitycsIsEnabled, isOpenLinkInNewTab) {
+    return function({analitycsIsEnabled,isOpenLinkInNewTab}, element) {
         if (defined) {
             return false;
         }

@@ -8,7 +8,14 @@ $viewModel = $block->getViewModel();
 /** @var $escaper \Magento\Framework\Escaper */
 $escaper = $viewModel->getEscaper();
 ?>
-<div class="box-tocart">
+<div class="box-tocart"
+    data-mage-init='{
+        "Magenable_PurchasePartnerUrl/js/google-analytics": {
+            "analitycsIsEnabled": <?= $escaper->escapeJs($viewModel->analyticsIsEnabled()) ?>,
+            "isOpenLinkInNewTab": <?= $escaper->escapeJs($viewModel->isOpenLinkInNewTab()) ?>
+        }
+    }'
+>
     <div class="fieldset">
         <div class="actions product-item-purchase-partner">
             <button type="button"
@@ -37,12 +44,4 @@ $escaper = $viewModel->getEscaper();
         </div>
     </div>
 </div>
-<script>
-    require(['Magenable_PurchasePartnerUrl/google-analytics'], function(magenableGa) {
-        magenableGa(
-            <?= $escaper->escapeJs($viewModel->analyticsIsEnabled()) ?>,
-            <?= $escaper->escapeJs($viewModel->isOpenLinkInNewTab()) ?>
-        );
-    });
-</script>
 
