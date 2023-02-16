@@ -14,8 +14,11 @@
         </arguments>
     </virtualType>
     <type name="Magento\Eav\Model\Entity\Attribute\Backend\JsonEncoded">
-        <plugin name="magenable_purchase_partner_url_plugin_json_encoded"
-                type="Magenable\PurchasePartnerUrl\Plugin\JsonEncodedPlugin"
+        <plugin name="magenable_purchase_partner_url_plugin_product_edit_json_encoded"
+                type="Magenable\PurchasePartnerUrl\Plugin\Admin\ProductEdit\JsonEncodedPlugin"
+                sortOrder="10"/>
+        <plugin name="magenable_purchase_partner_url_plugin_product_import_json_encoded"
+                type="Magenable\PurchasePartnerUrl\Plugin\Admin\ProductImport\JsonEncodedPlugin"
                 sortOrder="10"/>
     </type>
 </config>
