@@ -6,7 +6,14 @@ There may be one or more partner URL per product. The URLs are defined on produc
 The extension supports Magento version 2.3.X and 2.4.X
 
 ## PWA Studio
-The extension for Magento PWA Studio you can find here: https://www.npmjs.com/package/@magenable/purchase-partner-url
+The extension for Magento PWA Studio can be found here: https://www.npmjs.com/package/@magenable/purchase-partner-url
+
+## Hyvä themes
+The module for compatibility with the Hyvä theme can be found here:
+https://gitlab.hyva.io/hyva-themes/hyva-compat/magento2-magenable-purchase-partner-url
+
+## Breeze themes
+This module is compatible with **Swissup/breeze** themes
 
 ## Installation
 
