@@ -1,0 +1,1 @@
+1.5.0 Tested with Magento 2.4.6-p4
