@@ -1,1 +1,5 @@
-1.5.0 Tested with Magento 2.4.6-p4
+1.0.4 (2024-04-10)
+- Tested with Magento 2.4.7 and PHP 8.3
+
+1.5.0 (2024-03-11)
+- Tested with Magento 2.4.6-p4
