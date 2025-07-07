@@ -44,7 +44,7 @@ class PurchasePartnerUrlsResolver implements ResolverInterface
         $this->dataHelper = $dataHelper;
     }
 
-    public function resolve(Field $field, $context, ResolveInfo $info, array $value = null, array $args = null): array
+    public function resolve(Field $field, $context, ResolveInfo $info, ?array $value = null, ?array $args = null): array
     {
         $result = [];
         if (!$this->dataHelper->getConfigValue(Data::CONFIG_ENABLED, ScopeInterface::SCOPE_STORE)) {
