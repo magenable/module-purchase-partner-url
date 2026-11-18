@@ -63,6 +63,8 @@ class AddPurchasePartnerUrlAttribute implements DataPatchInterface
                 'used_in_product_listing' => true
             ]
         );
+
+        return $this;
     }
 
     /**
